@@ -17,3 +17,24 @@ def Intro(request, name, age):
         "age2": age
     }
     return JsonResponse(mydictionary)
+
+def MyFirstPage(request):
+    return render(request, "index.html")
+
+def MySecondPage(request):
+    return render(request, "second.html")
+
+def MyThirdPage(request):
+    Var = "My name is PEYMAN"
+    Fruits = ["banana", "pineapple", "apple"]
+    Num1, Num2 = 1, 3
+    Ans = Num1 > Num2
+    mydictionary = {
+        "var": Var,
+        "fruits": Fruits,
+        "num1": Num1,
+        "num2": Num2,
+        "ans": Ans
+    }
+    # Context should be a dictionary
+    return render(request, "third.html", context=mydictionary)

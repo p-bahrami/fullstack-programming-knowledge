@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block title %}My third Page{% endblock %}
+
+{% block contetnt %}
+<h1>How are you?</h1>
+
+<h1>{{var}}</h1>
+
+<!-- For loop Django template -->
+<!-- https://docs.djangoproject.com/en/4.2/ref/templates/language/ -->
+<ul>
+    {% for i in fruits %}
+    <li> {{i}} </li>
+    {% endfor %}
+</ul>
+
+<!-- if, elif, and else Django template -->
+<!-- if that variable is “true” the contents of the block are displayed -->
+{% if ans %}
+<h1> {{num1}} is greater {{num2}} </h1>
+{% else %}
+<h1> {{num2}} is greater {{num1}} </h1>
+{% endif %}
+
+{% endblock %}
