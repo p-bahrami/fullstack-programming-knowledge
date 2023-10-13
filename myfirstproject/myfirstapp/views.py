@@ -37,4 +37,19 @@ def MyThirdPage(request):
         "ans": Ans
     }
     # Context should be a dictionary
-    return render(request, "third.html", context=mydictionary)
+    return render(request, "third.html", context = mydictionary)
+
+def MyImagePage1(request):
+    return render(request, "imagepage1.html")
+
+def MyImagePage2(request, imagename):
+    myimagename = str(imagename)
+    myimagename = myimagename.lower()
+    if myimagename == "django":
+        Var = True
+    elif myimagename == "python":
+        Var = False
+    mydictionary = {
+        "var": Var
+    }
+    return render(request, "imagepage2.html", context = mydictionary) 
