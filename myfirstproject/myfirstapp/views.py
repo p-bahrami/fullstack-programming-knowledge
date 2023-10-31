@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse, JsonResponse
+from .forms import *
 
 # Create your views here.
 def Index(request):
@@ -53,3 +54,41 @@ def MyImagePage2(request, imagename):
         "var": Var
     }
     return render(request, "imagepage2.html", context = mydictionary) 
+
+
+def MyFormPage(request):
+    return render(request, "myform.html")
+
+def SubmitMyForm(request):
+    mydictionary = {
+        "var1": request.POST["mytext2"],
+        "var2": request.POST["mytext4"],
+        "meth": request.method
+    }
+    return JsonResponse(mydictionary)
+
+def AddPage(request):
+    return render(request, "adding.html")
+
+def Result(request):
+    var1 = int(request.GET['add1'])
+    var2 = int(request.GET['add2'])
+    res = var1 + var2
+    return render(request, "result.html", {'result3': res})
+
+def MyFormPage2(request):
+    if request.method == "POST":
+        pass
+    elif request.method == "GET":
+        form = FeedbackForm(request.GET)
+        if form.is_valid():
+            title1 = request.GET['title']
+            var = str("Form submitted" + str(title1) + str(request.method))
+            return HttpResponse(var)
+        else:
+            mydictionary = {
+             "form": form
+            }
+            return render(request, "myform2.html", context= mydictionary)
+
+

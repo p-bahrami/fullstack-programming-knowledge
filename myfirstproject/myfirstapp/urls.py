@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import Index, About, Add, Intro, MyFirstPage, MySecondPage, MyThirdPage, MyImagePage1, MyImagePage2
+from .views import Index, About, Add, Intro, MyFirstPage, MySecondPage, MyThirdPage, MyImagePage1, MyImagePage2, MyFormPage, SubmitMyForm, AddPage, Result, MyFormPage2
 
 urlpatterns = [
     path("", Index),
@@ -10,5 +10,10 @@ urlpatterns = [
     path("mysecondpage", MySecondPage),
     path("mythirdpage", MyThirdPage),
     path("myimagepage1", MyImagePage1),
-    path("myimagepage2/<str:imagename>", MyImagePage2)
+    path("myimagepage2/<str:imagename>", MyImagePage2),
+    path("myformpage", MyFormPage), 
+    path("submitmyform", SubmitMyForm, name='SUBMITING'),
+    path("addpage", AddPage, name='ADDING'),
+    path("ReSuLt", Result, name='RESULT'),
+    path("myformpage2", MyFormPage2, name='myformppage2'),
 ]

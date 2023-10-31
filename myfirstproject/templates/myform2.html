@@ -1,0 +1,13 @@
+{% extends "index.html" %}
+{% block title %}My Form 2{% endblock %}
+{% block contetnt %}
+
+<div class="col-md-6" style="margin: 0 auto">
+    <form method="GET">
+        {{form.as_ul}}    <! other types are: as_p (as paragraph), as_table (as table), etc>
+        <button type="submit" class="btn btn-primary" style="margin: 1rem auto 0 auto; display: block"> SUBMIT </button>
+    </form>
+</div>
+
+{% endblock %}
+
